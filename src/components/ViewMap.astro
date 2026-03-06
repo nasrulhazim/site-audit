@@ -149,12 +149,29 @@
           const badgeColor = loc.status === 'illegal' ? '#ef4444'
             : loc.status === 'possibly-illegal' ? '#f97316' : '#22c55e'
 
+          const linksHtml = (loc.links && loc.links.length > 0)
+            ? '<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap">' +
+              loc.links.map(link => {
+                const u = link.url.toLowerCase()
+                let label = link.label || (
+                  u.includes('facebook.com') || u.includes('fb.com') ? 'FB' :
+                  u.includes('x.com') || u.includes('twitter.com') ? 'X' :
+                  u.includes('instagram.com') ? 'IG' :
+                  u.includes('tiktok.com') ? 'TikTok' :
+                  u.includes('youtube.com') || u.includes('youtu.be') ? 'YT' : 'Link'
+                )
+                return `<a href="${link.url}" target="_blank" rel="noopener" style="padding:2px 6px;border-radius:4px;font-size:10px;background:#334155;color:#e2e8f0;text-decoration:none">${label} ↗</a>`
+              }).join('') +
+              '</div>'
+            : ''
+
           const popup = `
             <div style="font-family:'DM Mono',monospace;font-size:12px;min-width:180px">
               <strong>${loc.name}</strong><br/>
               <span style="color:#64748b">${loc.address}</span><br/>
-              <span style="display:inline-block;margin-top:4px;padding:2px 6px;border-radius:9999px;font-size:10px;color:white;background:${badgeColor}">${statusLabel}</span><br/>
-              <span style="color:#94a3b8;font-size:10px;margin-top:4px;display:inline-block">${loc.lat.toFixed(4)}, ${loc.lng.toFixed(4)}</span>
+              <span style="display:inline-block;margin-top:4px;padding:2px 6px;border-radius:9999px;font-size:10px;color:white;background:${badgeColor}">${statusLabel}</span>
+              ${linksHtml}
+              <br/><span style="color:#94a3b8;font-size:10px;margin-top:4px;display:inline-block">${loc.lat.toFixed(4)}, ${loc.lng.toFixed(4)}</span>
             </div>
           `
 

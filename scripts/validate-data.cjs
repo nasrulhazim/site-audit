@@ -114,6 +114,24 @@ function validateLocation(file, loc, index) {
       }
     })
   }
+
+  // links is optional — validate if present
+  if (loc.links !== undefined) {
+    if (!Array.isArray(loc.links)) {
+      error(file, `${prefix}.links must be an array`)
+    } else {
+      loc.links.forEach((link, i) => {
+        if (!link.url || typeof link.url !== 'string') {
+          error(file, `${prefix}.links[${i}].url must be a non-empty string`)
+        } else if (!/^https?:\/\/.+/.test(link.url)) {
+          error(file, `${prefix}.links[${i}].url "${link.url}" must be a valid HTTP/HTTPS URL`)
+        }
+        if (link.label !== undefined && typeof link.label !== 'string') {
+          error(file, `${prefix}.links[${i}].label must be a string if provided`)
+        }
+      })
+    }
+  }
 }
 
 function validateFile(filePath) {
