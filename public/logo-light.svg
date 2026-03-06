@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="200" fill="#f1f5f9"/>
+  <text x="400" y="118" text-anchor="middle" font-family="'Syne', sans-serif" font-weight="800" font-size="84" letter-spacing="2">
+    <tspan fill="#0f172a">site</tspan><tspan fill="url(#gl)">audit</tspan>
+  </text>
+</svg>

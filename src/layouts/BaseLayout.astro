@@ -1,0 +1,72 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+}
+
+const {
+  title = 'SiteAudit — Planning Compliance Status Checker',
+  description = 'Check planning compliance status of buildings and sites in Kedah. Search, map view, and statistics dashboard.',
+} = Astro.props
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || ''
+const ogImage = `${siteUrl}/og-image.svg`
+---
+<!doctype html>
+<html lang="en" data-dark="true">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="author" content="SiteAudit" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href={siteUrl} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:site_name" content="SiteAudit" />
+  <meta property="og:locale" content="en_MY" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <title>{title}</title>
+
+  <!-- Prevent flash of wrong theme -->
+  <script is:inline>
+    const saved = localStorage.getItem('site-audit-dark')
+    document.documentElement.dataset.dark = saved !== null ? saved : 'true'
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Leaflet CSS + JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script is:inline src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Chart.js -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body class="min-h-screen">
+  <slot />
+</body>
+</html>
