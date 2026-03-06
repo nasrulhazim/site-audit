@@ -1,21 +1,21 @@
 {
   "meta": {
     "state": "Kedah",
-    "generated": "2025-01-01",
+    "generated": "2026-03-07",
     "center": {
-      "lat": 5.8,
-      "lng": 100.5,
-      "zoom": 9
+      "lat": 5.4,
+      "lng": 100.6,
+      "zoom": 11
     }
   },
   "locations": [
     {
       "id": 1,
       "name": "Kuil Hindu (Tanpa Nama)",
-      "address": "Pejabat Hutan Pahau, Kulim",
+      "address": "Sebelah Pejabat Hutan Pahau, Kulim",
       "district": "Kulim",
-      "lat": 5.3905825,
-      "lng": 100.6991191,
+      "lat": 5.3905825012373,
+      "lng": 100.69911912023588,
       "status": "illegal",
       "category": "general",
       "notes": "-",
@@ -31,16 +31,16 @@
     },
     {
       "id": 2,
-      "name": "Rumah Ibadat Sri Maha Mariamman",
-      "address": "Jalan Tunku Ibrahim, Kulim",
+      "name": "Kuil First Solar Ayya",
+      "address": "Jalan Perusahaan, Lunas",
       "district": "Kulim",
-      "lat": 5.365,
-      "lng": 100.559,
+      "lat": 5.430576739550271,
+      "lng": 100.5644780278531,
       "status": "illegal",
-      "category": "general",
+      "category": "industrial",
       "notes": "-",
       "issues": [
-        "wrong-zoning"
+        "no-lot"
       ],
       "links": [
         {
@@ -51,16 +51,16 @@
     },
     {
       "id": 3,
-      "name": "Kuil Sri Subramaniar",
-      "address": "Ladang Bukit Sembilan, Kulim",
+      "name": "Kuil Sri Veerabathra Kaliamman",
+      "address": "Taman Industri Saujana, Lunas",
       "district": "Kulim",
-      "lat": 5.321,
-      "lng": 100.512,
-      "status": "possibly-illegal",
-      "category": "estate",
-      "notes": "Dalam kawasan ladang",
+      "lat": 5.430829307630597,
+      "lng": 100.53800687635683,
+      "status": "illegal",
+      "category": "industrial",
+      "notes": "-",
       "issues": [
-        "restricted-area"
+        "no-lot"
       ],
       "links": [
         {
@@ -71,15 +71,17 @@
     },
     {
       "id": 4,
-      "name": "Tokong Cina Kwang Fook Kong",
-      "address": "Pekan Kulim",
+      "name": "Kuil Sree Arulmigu Muniswarar Alayam",
+      "address": "Paya Besar, Lunas",
       "district": "Kulim",
-      "lat": 5.3648,
-      "lng": 100.5611,
-      "status": "legal",
+      "lat": 5.419005310806847,
+      "lng": 100.5564525320095,
+      "status": "illegal",
       "category": "general",
-      "notes": "Kelulusan PBT ada",
-      "issues": [],
+      "notes": "-",
+      "issues": [
+        "no-lot"
+      ],
       "links": [
         {
           "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
@@ -89,14 +91,14 @@
     },
     {
       "id": 5,
-      "name": "Kuil Sri Muthu Mariamman",
-      "address": "Ladang Sungai Toh Pawang, Bandar Baharu",
-      "district": "Bandar Baharu",
-      "lat": 5.152,
-      "lng": 100.473,
+      "name": "Kuil Sri Veera Bathare Kaaliamman",
+      "address": "Kg Tunku Putra, Kulim",
+      "district": "Kulim",
+      "lat": 5.3887977914456116,
+      "lng": 100.5677798808855,
       "status": "illegal",
-      "category": "estate",
-      "notes": "-",
+      "category": "residential",
+      "notes": "Tiada lot, zoning rumah",
       "issues": [
         "no-lot",
         "wrong-zoning"
@@ -110,16 +112,17 @@
     },
     {
       "id": 6,
-      "name": "Kuil Sri Pathira Kaliamman",
-      "address": "Ladang Bukit Mertajam, Bandar Baharu",
-      "district": "Bandar Baharu",
-      "lat": 5.138,
-      "lng": 100.456,
+      "name": "Kuil ISKCON Kulim, Sri Sri Krishna Balaram Mandir",
+      "address": "Kg Kelang Lama, Kulim",
+      "district": "Kulim",
+      "lat": 5.40306101513271,
+      "lng": 100.55691172139447,
       "status": "possibly-illegal",
-      "category": "estate",
-      "notes": "Tiada rekod lot",
+      "category": "residential",
+      "notes": "Tiada lot, zoning kampung",
       "issues": [
-        "no-lot"
+        "no-lot",
+        "wrong-zoning"
       ],
       "links": [
         {
@@ -130,53 +133,14 @@
     },
     {
       "id": 7,
-      "name": "Tokong Sam Siang Keng",
-      "address": "Pekan Bandar Baharu",
-      "district": "Bandar Baharu",
-      "lat": 5.141,
-      "lng": 100.471,
-      "status": "legal",
-      "category": "general",
-      "notes": "Ada kelulusan",
-      "issues": [],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Kuil Arulmigu Balathandayuthapani",
-      "address": "Jalan Kuala Ketil, Baling",
-      "district": "Baling",
-      "lat": 5.677,
-      "lng": 100.918,
+      "name": "Kuil Sree Porpathi Vinayagar Alayam",
+      "address": "Taman Selasih, Kulim",
+      "district": "Kulim",
+      "lat": 5.380424098047304,
+      "lng": 100.53228483898542,
       "status": "illegal",
-      "category": "reserve",
-      "notes": "Kawasan rizab",
-      "issues": [
-        "wrong-zoning",
-        "restricted-area"
-      ],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "name": "Kuil Sri Maha Kaliamman",
-      "address": "Pekan Baling",
-      "district": "Baling",
-      "lat": 5.674,
-      "lng": 100.921,
-      "status": "possibly-illegal",
       "category": "residential",
-      "notes": "Zon kediaman",
+      "notes": "Zoning taman permainan",
       "issues": [
         "wrong-zoning"
       ],
@@ -188,14 +152,54 @@
       ]
     },
     {
-      "id": 10,
-      "name": "Kuil Muniandy",
-      "address": "Ladang Kuala Muda, Kuala Muda",
-      "district": "Kuala Muda",
-      "lat": 5.564,
-      "lng": 100.489,
+      "id": 8,
+      "name": "Kuil Nagavali",
+      "address": "Sungai Ular, Kulim",
+      "district": "Kulim",
+      "lat": 5.381827015611138,
+      "lng": 100.58717553945547,
+      "status": "illegal",
+      "category": "general",
+      "notes": "-",
+      "issues": [
+        "no-lot"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Kuil Sri Maha Mariaman (Tapak Lama)",
+      "address": "Merah Estate, Kulim",
+      "district": "Kulim",
+      "lat": 5.361592905033956,
+      "lng": 100.55675646545069,
       "status": "illegal",
       "category": "estate",
+      "notes": "Tapak lama",
+      "issues": [
+        "no-lot"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Kuil Sri Maha Prathiyangara Renuga Devi",
+      "address": "Kg. Chetti, Kulim",
+      "district": "Kulim",
+      "lat": 5.365084607772863,
+      "lng": 100.55783877189735,
+      "status": "illegal",
+      "category": "general",
       "notes": "-",
       "issues": [
         "no-lot"
@@ -209,34 +213,15 @@
     },
     {
       "id": 11,
-      "name": "Tokong Kwan Im",
-      "address": "Sungai Petani, Kuala Muda",
-      "district": "Kuala Muda",
-      "lat": 5.647,
-      "lng": 100.488,
-      "status": "legal",
-      "category": "commercial",
-      "notes": "Kelulusan penuh",
-      "issues": [],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "name": "Kuil Sri Ganesar",
-      "address": "Taman Ria, Sungai Petani",
-      "district": "Kuala Muda",
-      "lat": 5.638,
-      "lng": 100.495,
+      "name": "Kuil Shree Murugan",
+      "address": "Jalan Raya, Kulim",
+      "district": "Kulim",
+      "lat": 5.3666950505124404,
+      "lng": 100.55409328089642,
       "status": "illegal",
-      "category": "residential",
-      "notes": "Kawasan perumahan",
+      "category": "commercial",
+      "notes": "Dalam kedai",
       "issues": [
-        "no-lot",
         "wrong-zoning"
       ],
       "links": [
@@ -247,72 +232,14 @@
       ]
     },
     {
-      "id": 13,
-      "name": "Kuil Sri Subramaniar",
-      "address": "Ladang Badenoch, Kuala Muda",
-      "district": "Kuala Muda",
-      "lat": 5.591,
-      "lng": 100.512,
-      "status": "possibly-illegal",
-      "category": "estate",
-      "notes": "Kawasan ladang",
-      "issues": [
-        "restricted-area"
-      ],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "name": "Kuil Arulmigu Maha Mariamman",
-      "address": "Bedong, Kuala Muda",
-      "district": "Kuala Muda",
-      "lat": 5.727,
-      "lng": 100.505,
+      "id": 12,
+      "name": "Kuil Arulmigu Sri Muniswarar Lunas",
+      "address": "Belakang Jalan Raya, Lunas",
+      "district": "Kulim",
+      "lat": 5.428490267735315,
+      "lng": 100.53472569674712,
       "status": "illegal",
-      "category": "industrial",
-      "notes": "Kawasan perindustrian",
-      "issues": [
-        "other"
-      ],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "name": "Tokong Tua Pek Kong",
-      "address": "Yan, Yan",
-      "district": "Yan",
-      "lat": 5.792,
-      "lng": 100.373,
-      "status": "legal",
       "category": "general",
-      "notes": "Kelulusan PBT",
-      "issues": [],
-      "links": [
-        {
-          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
-          "label": "Sumber"
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "name": "Kuil Sri Pathrakali",
-      "address": "Ladang Sungai Daun, Yan",
-      "district": "Yan",
-      "lat": 5.801,
-      "lng": 100.356,
-      "status": "illegal",
-      "category": "estate",
       "notes": "-",
       "issues": [
         "no-lot"
@@ -325,15 +252,97 @@
       ]
     },
     {
+      "id": 13,
+      "name": "Kuil Sri Raaja Muniswarar",
+      "address": "Jalan Merdeka, Kulim",
+      "district": "Kulim",
+      "lat": 5.370092378453308,
+      "lng": 100.55344836961757,
+      "status": "illegal",
+      "category": "commercial",
+      "notes": "Zoning perniagaan",
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Kuil Sri Maha Mariamman Alayam",
+      "address": "Estet Sungai Ular, Kulim",
+      "district": "Kulim",
+      "lat": 5.3318917045806,
+      "lng": 100.587505338334,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Tiada lot, ambil kawasan tanah berhadapan sekali",
+      "issues": [
+        "no-lot",
+        "other"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Kuil Sri Maha Muthu Mariamman",
+      "address": "Ladang Somme, Terap",
+      "district": "Kulim",
+      "lat": 5.253442846041853,
+      "lng": 100.60325159300542,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Masuk lot Sekolah Tamil",
+      "issues": [
+        "no-lot",
+        "other"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Kuil Sree Nagamuthu Mariamman Sree Jada Muneeswarar",
+      "address": "Kg Banggol Penyengat, Karangan",
+      "district": "Kulim",
+      "lat": 5.420926110632375,
+      "lng": 100.67088884644058,
+      "status": "illegal",
+      "category": "residential",
+      "notes": "Kawasan kampung",
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
+    },
+    {
       "id": 17,
-      "name": "Kuil Nagamman",
-      "address": "Gurun, Yan",
-      "district": "Yan",
-      "lat": 5.812,
-      "lng": 100.471,
-      "status": "possibly-illegal",
-      "category": "agricultural",
-      "notes": "Zon pertanian",
+      "name": "Kuil Savitra Manikandan Sevaalayam",
+      "address": "Jalan Serai Ria 1, Padang Serai",
+      "district": "Kulim",
+      "lat": 5.509598982295954,
+      "lng": 100.55205413099671,
+      "status": "illegal",
+      "category": "residential",
+      "notes": "Kawasan rumah",
       "issues": [
         "wrong-zoning"
       ],
@@ -346,17 +355,16 @@
     },
     {
       "id": 18,
-      "name": "Kuil Sri Maha Ganapathi",
-      "address": "Jitra, Kubang Pasu",
-      "district": "Kubang Pasu",
-      "lat": 6.264,
-      "lng": 100.423,
+      "name": "Kuil Sri Muniswarar & Kaliamman",
+      "address": "Berdekatan Pokok Jambu, Padang Serai",
+      "district": "Kulim",
+      "lat": 5.5004639872093435,
+      "lng": 100.57197464206999,
       "status": "illegal",
-      "category": "government",
-      "notes": "Tanah kerajaan",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "no-lot",
-        "restricted-area"
+        "no-lot"
       ],
       "links": [
         {
@@ -367,15 +375,17 @@
     },
     {
       "id": 19,
-      "name": "Tokong Hock San",
-      "address": "Changlun, Kubang Pasu",
-      "district": "Kubang Pasu",
-      "lat": 6.439,
-      "lng": 100.428,
-      "status": "legal",
-      "category": "general",
-      "notes": "Kelulusan lengkap",
-      "issues": [],
+      "name": "Kuil Arulmigu Sri Maha Mariamman",
+      "address": "Ladang Bukit Selarong, Padang Meha",
+      "district": "Kulim",
+      "lat": 5.4782663525589985,
+      "lng": 100.59915701143824,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
+      "issues": [
+        "no-lot"
+      ],
       "links": [
         {
           "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
@@ -385,16 +395,16 @@
     },
     {
       "id": 20,
-      "name": "Kuil Sri Draupathi Amman",
-      "address": "Kodiang, Kubang Pasu",
-      "district": "Kubang Pasu",
-      "lat": 6.365,
-      "lng": 100.308,
-      "status": "possibly-illegal",
-      "category": "general",
-      "notes": "Tiada dokumen lengkap",
+      "name": "Kuil Dewi Sri Karumariamman",
+      "address": "Ladang Bukit Selarong, Padang Meha",
+      "district": "Kulim",
+      "lat": 5.462747608686093,
+      "lng": 100.58879469450447,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "other"
+        "no-lot"
       ],
       "links": [
         {
@@ -405,16 +415,16 @@
     },
     {
       "id": 21,
-      "name": "Kuil Arulmigu Karumariamman",
-      "address": "Alor Setar, Kota Setar",
-      "district": "Kota Setar",
-      "lat": 6.121,
-      "lng": 100.367,
+      "name": "Kuil Arulmigu Sri Mahamariamman Thevastanam",
+      "address": "Jalan Ladang Pelam, Naga Lilit",
+      "district": "Kulim",
+      "lat": 5.478105347722435,
+      "lng": 100.58396078968033,
       "status": "illegal",
-      "category": "general",
-      "notes": "-",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "wrong-zoning"
+        "no-lot"
       ],
       "links": [
         {
@@ -425,15 +435,17 @@
     },
     {
       "id": 22,
-      "name": "Tokong Kwan Tee",
-      "address": "Alor Setar, Kota Setar",
-      "district": "Kota Setar",
-      "lat": 6.119,
-      "lng": 100.371,
-      "status": "legal",
-      "category": "general",
-      "notes": "Ada kelulusan penuh",
-      "issues": [],
+      "name": "Kuil Sri Balamurugan Alayam",
+      "address": "Jalan Jangkang, Karangan",
+      "district": "Kulim",
+      "lat": 5.458441802867803,
+      "lng": 100.63993168550915,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
+      "issues": [
+        "no-lot"
+      ],
       "links": [
         {
           "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
@@ -443,17 +455,16 @@
     },
     {
       "id": 23,
-      "name": "Kuil Sri Ambal Muneeswarar",
-      "address": "Ladang Bukit Pinang, Kota Setar",
-      "district": "Kota Setar",
-      "lat": 6.087,
-      "lng": 100.394,
+      "name": "Kuil Sri Maha Ganggai Muthu Mariamma",
+      "address": "Jalan Marryland, Karangan",
+      "district": "Kulim",
+      "lat": 5.454580691775888,
+      "lng": 100.6460270282176,
       "status": "illegal",
       "category": "estate",
-      "notes": "-",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "no-lot",
-        "restricted-area"
+        "no-lot"
       ],
       "links": [
         {
@@ -464,16 +475,16 @@
     },
     {
       "id": 24,
-      "name": "Kuil Sri Raja Mariamman",
-      "address": "Langkawi, Langkawi",
-      "district": "Langkawi",
-      "lat": 6.326,
-      "lng": 99.844,
-      "status": "possibly-illegal",
-      "category": "commercial",
-      "notes": "Kawasan pelancongan",
+      "name": "Kuil Sri Maha Mariamman",
+      "address": "Jalan Marryland, Karangan",
+      "district": "Kulim",
+      "lat": 5.435400442540551,
+      "lng": 100.66130796725135,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "wrong-zoning"
+        "no-lot"
       ],
       "links": [
         {
@@ -484,15 +495,17 @@
     },
     {
       "id": 25,
-      "name": "Tokong Sam San Keong",
-      "address": "Kuah, Langkawi",
-      "district": "Langkawi",
-      "lat": 6.323,
-      "lng": 99.849,
-      "status": "legal",
-      "category": "general",
-      "notes": "Kelulusan LADA",
-      "issues": [],
+      "name": "Kuil Sri Maha Mariamman",
+      "address": "Taman Sepilai, Karangan",
+      "district": "Kulim",
+      "lat": 5.43099404137802,
+      "lng": 100.60553254476065,
+      "status": "illegal",
+      "category": "estate",
+      "notes": "Nampak dah kosong",
+      "issues": [
+        "no-lot"
+      ],
       "links": [
         {
           "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
@@ -502,17 +515,16 @@
     },
     {
       "id": 26,
-      "name": "Kuil Sri Vinayagar",
-      "address": "Padang Serai, Kulim",
+      "name": "Kuil Arulmigu Sri Aadhi Naga Muthumariamman",
+      "address": "Jalan Kulim-Mahang, Karangan",
       "district": "Kulim",
-      "lat": 5.412,
-      "lng": 100.623,
+      "lat": 5.353089499296266,
+      "lng": 100.71178321089475,
       "status": "illegal",
-      "category": "general",
-      "notes": "-",
+      "category": "estate",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "no-lot",
-        "other"
+        "no-lot"
       ],
       "links": [
         {
@@ -523,17 +535,16 @@
     },
     {
       "id": 27,
-      "name": "Kuil Sri Sakthi Muneeswaran",
-      "address": "Ladang Bukit Jenun, Yan",
-      "district": "Yan",
-      "lat": 5.834,
-      "lng": 100.391,
+      "name": "Kuil Sri Veerabhatra Kaliamman",
+      "address": "Kg. Terap, Karangan",
+      "district": "Kulim",
+      "lat": 5.294410668014266,
+      "lng": 100.63384682759141,
       "status": "illegal",
       "category": "estate",
-      "notes": "-",
+      "notes": "Estet kelapa sawit",
       "issues": [
-        "no-lot",
-        "restricted-area"
+        "no-lot"
       ],
       "links": [
         {
