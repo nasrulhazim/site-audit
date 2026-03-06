@@ -131,7 +131,7 @@ Key store properties:
 ### 2. ViewMap
 
 - Leaflet.js fullscreen map
-- Tile layer: OpenStreetMap
+- Tile layer: OpenStreetMap (light) / CartoDB dark_all (dark mode)
 - Colour-coded markers by status: red / orange / green
 - Popup on marker click: name, address, status badge, coordinates
 - Marker clustering for dense areas (Leaflet.markercluster via CDN)
@@ -154,9 +154,11 @@ x-init="
 ### 3. ViewStats
 
 - KPI cards: Total Sites, Illegal, Possibly Illegal, Districts Affected
-- Doughnut chart — status breakdown
-- Bar chart — count by district
-- Issue breakdown cards — Estate, Wrong Zoning, No Lot, Others
+- Doughnut chart — status breakdown (with datalabels showing value + percentage)
+- Stacked bar chart — count by district, split by status colour (red/orange/green)
+- Category breakdown cards (dynamic from data)
+- Issue breakdown cards — No Lot, Wrong Zoning, Restricted Area, Others
+- Charts use `chartjs-plugin-datalabels` CDN for inline labels
 - All charts must be destroyed and rebuilt when dark mode is toggled, view is switched, or state changes
 
 ---
@@ -294,10 +296,11 @@ export default defineConfig({
 - **Name:** SiteAudit
 - **Tagline:** Planning Compliance Status Checker
 - **Primary colour:** `#3b82f6` (blue-500)
-- **Display font:** Syne — used for headers, logo, KPI numbers
-- **Body / mono font:** DM Mono — used for table content, labels, coordinates
+- **Display font:** Syne — used for logo wordmark only (via SVG)
+- **Body / mono font:** DM Mono — used for everything: table content, labels, KPI numbers, coordinates
 - **Aesthetic:** Dark-first, industrial/utilitarian, data-dense but clean
-- **Logo:** `🏛️` emoji + "SiteAudit" wordmark in Syne bold
+- **Logo:** SVG wordmark files (`/logo-dark.svg`, `/logo-light.svg`) — lowercase "siteaudit" in Syne 800. Use `<img>` tags, never recreate in HTML/CSS
+- **Brand palette:** Slate 900 `#0f172a`, Slate 800 `#1e293b`, Blue 500 `#3b82f6`, Cyan 500 `#06b6d4`, Slate 200 `#e2e8f0`, Slate 400 `#94a3b8`
 
 ---
 
@@ -317,10 +320,43 @@ export default defineConfig({
 2. **Static output only** — `output: 'static'` in Astro config, no SSR
 3. **Alpine.js via CDN** — load in `BaseLayout.astro` `<head>`, do not npm install
 4. **Leaflet via CDN** — initialise map inside `x-init`, always ensure div has explicit height
-5. **Chart.js via CDN** — always destroy existing chart instances before rebuilding
+5. **Chart.js via CDN** — always destroy existing chart instances before rebuilding. Uses `chartjs-plugin-datalabels` for inline labels
 6. **No React or Vue** — Alpine.js only for all interactivity
 7. **Single page app** — all views live in `index.astro`, toggled via `activeView` in the store
 8. **Mobile responsive** — table scrolls horizontally on mobile, map is full width
+
+---
+
+## DO / DON'T
+
+- ✅ DO use the existing SVG files (`/logo-dark.svg`, `/logo-light.svg`) via `<img>` tags
+- ❌ DON'T recreate logo in HTML/CSS — always reference the SVG assets
+- ✅ DO use DM Mono for KPI numbers and all body text
+- ❌ DON'T use `font-display` (Syne) for numbers — renders condensed
+- ✅ DO use `x-show` for chart containers (canvas stays in DOM)
+- ❌ DON'T use `x-if` for Chart.js canvases — destroys/recreates elements causing timing issues
+- ❌ DON'T use `animation: false` on Chart.js — causes charts to render off-center/wrong size
+- ✅ DO destroy charts immediately in watcher, then rebuild via `setTimeout(100)` after `x-show` repaints
+- ❌ DON'T modify files in `tinker/` unless explicitly asked
+- ✅ DO use `is:inline` on CDN `<script>` tags — prevents Astro from reordering/bundling them
+- ✅ DO use `.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')` for Title Case in Alpine `<option>` elements (CSS `capitalize` doesn't work on `<option>`)
+
+---
+
+## Gotchas
+
+> **Gotcha:** Chart.js + Alpine.js `x-show` timing — when a parent has `x-show`, the canvas
+> may have zero dimensions when `$nextTick` fires. Use `setTimeout(100)` after `$nextTick` to
+> wait for browser repaint. Always call `destroyCharts()` immediately (not inside setTimeout)
+> to prevent "Canvas is already in use" errors.
+
+> **Gotcha:** Astro reorders and bundles `<script>` tags by default. CDN scripts that depend
+> on load order (Leaflet → MarkerCluster → Chart.js) must use `is:inline` to prevent this.
+> Without it, `L is not defined` errors occur.
+
+> **Gotcha:** CSS `text-transform: capitalize` (Tailwind's `capitalize` class) does not work
+> on `<option>` elements in most browsers. Must use JavaScript string transformation in Alpine
+> `:x-text` bindings instead.
 
 ---
 
