@@ -79,7 +79,10 @@ All state files are **glob-imported at build time** in `index.astro` via `import
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["no-lot"]
+      "issues": ["no-lot"],
+      "links": [
+        { "url": "https://www.facebook.com/example/posts/123", "label": "FB Post" }
+      ]
     }
   ]
 }
@@ -93,6 +96,7 @@ All state files are **glob-imported at build time** in `index.astro` via `import
 **Status values:** `illegal` | `possibly-illegal` | `legal`
 **Category values:** `general` | `estate` | `residential` | `commercial` | `industrial` | `agricultural` | `government` | `reserve`
 **Issues values (array, multiple allowed):** `no-lot` | `wrong-zoning` | `restricted-area` | `other`
+**Links (optional array):** `[{ "url": "https://...", "label": "FB Post" }]` — social media or reference links. Platform auto-detected from URL (FB, X, IG, TikTok, YT). `label` is optional.
 
 ### Adding a New State
 

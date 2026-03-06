@@ -43,16 +43,31 @@ const states = Object.values(stateFiles).map((mod) => mod.default || mod)
         stateMap[s.meta.state] = s
       })
 
+      // URL state sync helpers
+      function stateToSlug(name) {
+        return name.toLowerCase().replace(/\./g, '').replace(/\s+/g, '-')
+      }
+      function slugToState(slug) {
+        return allStates.find(s => stateToSlug(s) === slug) || null
+      }
+
+      // Read initial state from URL params
+      const params = new URLSearchParams(window.location.search)
+      const urlState = params.get('state') ? slugToState(params.get('state')) : null
+      const urlView = params.get('view')
+      const validViews = ['search', 'map', 'stats']
+
       // Default to first state that has data
       const statesWithData = allStates.filter(s => stateMap[s])
-      const defaultState = statesWithData[0] || allStates[0]
+      const defaultState = urlState || statesWithData[0] || allStates[0]
+      const defaultView = (urlView && validViews.includes(urlView)) ? urlView : 'search'
 
       Alpine.store('audit', {
         _stateMap: stateMap,
         allStates: allStates,
         stateNames: allStates,
         activeState: defaultState,
-        activeView: 'search',
+        activeView: defaultView,
         dark: document.documentElement.dataset.dark === 'true',
         search: '',
         filterDistrict: 'all',
@@ -127,18 +142,50 @@ const states = Object.values(stateFiles).map((mod) => mod.default || mod)
           return { total, byStatus, byDistrict, byCategory }
         },
 
+        _pushUrl() {
+          const p = new URLSearchParams()
+          p.set('state', stateToSlug(this.activeState))
+          if (this.activeView !== 'search') p.set('view', this.activeView)
+          const url = '?' + p.toString()
+          if (window.location.search !== url) {
+            history.pushState({ state: this.activeState, view: this.activeView }, '', url)
+          }
+        },
+
         switchState(state) {
           this.activeState = state
           this.search = ''
           this.filterDistrict = 'all'
           this.filterStatus = 'all'
           this.filterCategory = 'all'
+          this._pushUrl()
+        },
+
+        switchView(view) {
+          this.activeView = view
+          this._pushUrl()
         },
 
         toggleDark() {
           this.dark = !this.dark
           document.documentElement.dataset.dark = this.dark
           localStorage.setItem('site-audit-dark', this.dark)
+        }
+      })
+
+      // Set initial URL without adding to history
+      const store = Alpine.store('audit')
+      const initP = new URLSearchParams()
+      initP.set('state', stateToSlug(store.activeState))
+      if (store.activeView !== 'search') initP.set('view', store.activeView)
+      history.replaceState({ state: store.activeState, view: store.activeView }, '', '?' + initP.toString())
+
+      // Handle browser back/forward
+      window.addEventListener('popstate', (e) => {
+        if (e.state) {
+          const s = Alpine.store('audit')
+          if (e.state.state) s.activeState = e.state.state
+          if (e.state.view) s.activeView = e.state.view
         }
       })
     })

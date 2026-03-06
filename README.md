@@ -111,7 +111,10 @@ Data is organized as **one JSON file per state** in `public/data/states/`.
       "status": "illegal",
       "category": "general",
       "notes": "Additional context or '-' if none",
-      "issues": ["no-lot"]
+      "issues": ["no-lot"],
+      "links": [
+        { "url": "https://www.facebook.com/example/posts/123", "label": "FB Post" }
+      ]
     }
   ]
 }
@@ -139,6 +142,7 @@ Data is organized as **one JSON file per state** in `public/data/states/`.
 | `category` | string   | Yes      | One of: `general`, `estate`, `residential`, `commercial`, `industrial`, `agricultural`, `government`, `reserve` |
 | `notes`    | string   | Yes      | Context notes, use `"-"` if none                 |
 | `issues`   | string[] | Yes      | Array of: `no-lot`, `wrong-zoning`, `restricted-area`, `other`. Use `[]` if none |
+| `links`    | object[] | No       | Social media/reference links. Each: `{ "url": "https://...", "label": "FB Post" }`. Label is optional — platform auto-detected from URL |
 
 ### Validation Checklist
 
@@ -151,6 +155,7 @@ Before submitting, ensure:
 - [ ] `issues` only contains allowed values
 - [ ] `meta.state` matches the filename (e.g. `kedah.json` has `"state": "Kedah"`)
 - [ ] `meta.center` points to a sensible center of the state
+- [ ] `links` (if provided) contains valid HTTP/HTTPS URLs
 - [ ] JSON is valid (no trailing commas, proper quoting)
 
 ### Currently Available States

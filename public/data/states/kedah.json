@@ -15,7 +15,10 @@
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["no-lot"]
+      "issues": ["no-lot"],
+      "links": [
+        { "url": "https://www.facebook.com/example/posts/123", "label": "FB Post" }
+      ]
     },
     {
       "id": 2,
@@ -27,7 +30,11 @@
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["wrong-zoning"]
+      "issues": ["wrong-zoning"],
+      "links": [
+        { "url": "https://x.com/user/status/456" },
+        { "url": "https://www.facebook.com/example/posts/789" }
+      ]
     },
     {
       "id": 3,

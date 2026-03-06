@@ -18,7 +18,7 @@
             : 'hover:bg-blue-500/10'"
           style="color: var(--text);"
           :style="$store.audit.activeView === tab ? 'color: white' : ''"
-          @click="$store.audit.activeView = tab"
+          @click="$store.audit.switchView(tab)"
           x-text="tab"
         ></button>
       </template>
