@@ -11,7 +11,7 @@
 - **Multi-State Support** — select a state from the dropdown; data is separated per state file
 - **Search & Filter** — real-time search by name/address with district, status, and category filters
 - **Interactive Map** — Leaflet.js map with colour-coded clustered markers, auto-centers per state
-- **Statistics Dashboard** — KPI cards, doughnut/bar charts, issue breakdowns via Chart.js
+- **Statistics Dashboard** — KPI cards, doughnut chart with datalabels, stacked bar chart by district/status, category and issue breakdowns via Chart.js
 - **Dark Mode** — dark-first design with persistent light/dark toggle
 
 ## Tech Stack
@@ -147,7 +147,7 @@ Before submitting, ensure:
 - [ ] `id` is unique and sequential within the state file
 - [ ] `lat` and `lng` are valid coordinates within the state
 - [ ] `status` is one of the three allowed values
-- [ ] `category` is either `general` or `estate`
+- [ ] `category` is one of: `general`, `estate`, `residential`, `commercial`, `industrial`, `agricultural`, `government`, `reserve`
 - [ ] `issues` only contains allowed values
 - [ ] `meta.state` matches the filename (e.g. `kedah.json` has `"state": "Kedah"`)
 - [ ] `meta.center` points to a sensible center of the state
