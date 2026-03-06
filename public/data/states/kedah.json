@@ -2,7 +2,11 @@
   "meta": {
     "state": "Kedah",
     "generated": "2025-01-01",
-    "center": { "lat": 5.8, "lng": 100.5, "zoom": 9 }
+    "center": {
+      "lat": 5.8,
+      "lng": 100.5,
+      "zoom": 9
+    }
   },
   "locations": [
     {
@@ -15,9 +19,14 @@
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["no-lot"],
+      "issues": [
+        "no-lot"
+      ],
       "links": [
-        { "url": "https://www.facebook.com/example/posts/123", "label": "FB Post" }
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
       ]
     },
     {
@@ -25,15 +34,19 @@
       "name": "Rumah Ibadat Sri Maha Mariamman",
       "address": "Jalan Tunku Ibrahim, Kulim",
       "district": "Kulim",
-      "lat": 5.3650,
-      "lng": 100.5590,
+      "lat": 5.365,
+      "lng": 100.559,
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["wrong-zoning"],
+      "issues": [
+        "wrong-zoning"
+      ],
       "links": [
-        { "url": "https://x.com/user/status/456" },
-        { "url": "https://www.facebook.com/example/posts/789" }
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
       ]
     },
     {
@@ -41,12 +54,20 @@
       "name": "Kuil Sri Subramaniar",
       "address": "Ladang Bukit Sembilan, Kulim",
       "district": "Kulim",
-      "lat": 5.3210,
-      "lng": 100.5120,
+      "lat": 5.321,
+      "lng": 100.512,
       "status": "possibly-illegal",
       "category": "estate",
       "notes": "Dalam kawasan ladang",
-      "issues": ["restricted-area"]
+      "issues": [
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 4,
@@ -58,283 +79,468 @@
       "status": "legal",
       "category": "general",
       "notes": "Kelulusan PBT ada",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 5,
       "name": "Kuil Sri Muthu Mariamman",
       "address": "Ladang Sungai Toh Pawang, Bandar Baharu",
       "district": "Bandar Baharu",
-      "lat": 5.1520,
-      "lng": 100.4730,
+      "lat": 5.152,
+      "lng": 100.473,
       "status": "illegal",
       "category": "estate",
       "notes": "-",
-      "issues": ["no-lot", "wrong-zoning"]
+      "issues": [
+        "no-lot",
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 6,
       "name": "Kuil Sri Pathira Kaliamman",
       "address": "Ladang Bukit Mertajam, Bandar Baharu",
       "district": "Bandar Baharu",
-      "lat": 5.1380,
-      "lng": 100.4560,
+      "lat": 5.138,
+      "lng": 100.456,
       "status": "possibly-illegal",
       "category": "estate",
       "notes": "Tiada rekod lot",
-      "issues": ["no-lot"]
+      "issues": [
+        "no-lot"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 7,
       "name": "Tokong Sam Siang Keng",
       "address": "Pekan Bandar Baharu",
       "district": "Bandar Baharu",
-      "lat": 5.1410,
-      "lng": 100.4710,
+      "lat": 5.141,
+      "lng": 100.471,
       "status": "legal",
       "category": "general",
       "notes": "Ada kelulusan",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 8,
       "name": "Kuil Arulmigu Balathandayuthapani",
       "address": "Jalan Kuala Ketil, Baling",
       "district": "Baling",
-      "lat": 5.6770,
-      "lng": 100.9180,
+      "lat": 5.677,
+      "lng": 100.918,
       "status": "illegal",
       "category": "reserve",
       "notes": "Kawasan rizab",
-      "issues": ["wrong-zoning", "restricted-area"]
+      "issues": [
+        "wrong-zoning",
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 9,
       "name": "Kuil Sri Maha Kaliamman",
       "address": "Pekan Baling",
       "district": "Baling",
-      "lat": 5.6740,
-      "lng": 100.9210,
+      "lat": 5.674,
+      "lng": 100.921,
       "status": "possibly-illegal",
       "category": "residential",
       "notes": "Zon kediaman",
-      "issues": ["wrong-zoning"]
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 10,
       "name": "Kuil Muniandy",
       "address": "Ladang Kuala Muda, Kuala Muda",
       "district": "Kuala Muda",
-      "lat": 5.5640,
-      "lng": 100.4890,
+      "lat": 5.564,
+      "lng": 100.489,
       "status": "illegal",
       "category": "estate",
       "notes": "-",
-      "issues": ["no-lot"]
+      "issues": [
+        "no-lot"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 11,
       "name": "Tokong Kwan Im",
       "address": "Sungai Petani, Kuala Muda",
       "district": "Kuala Muda",
-      "lat": 5.6470,
-      "lng": 100.4880,
+      "lat": 5.647,
+      "lng": 100.488,
       "status": "legal",
       "category": "commercial",
       "notes": "Kelulusan penuh",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 12,
       "name": "Kuil Sri Ganesar",
       "address": "Taman Ria, Sungai Petani",
       "district": "Kuala Muda",
-      "lat": 5.6380,
-      "lng": 100.4950,
+      "lat": 5.638,
+      "lng": 100.495,
       "status": "illegal",
       "category": "residential",
       "notes": "Kawasan perumahan",
-      "issues": ["no-lot", "wrong-zoning"]
+      "issues": [
+        "no-lot",
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 13,
       "name": "Kuil Sri Subramaniar",
       "address": "Ladang Badenoch, Kuala Muda",
       "district": "Kuala Muda",
-      "lat": 5.5910,
-      "lng": 100.5120,
+      "lat": 5.591,
+      "lng": 100.512,
       "status": "possibly-illegal",
       "category": "estate",
       "notes": "Kawasan ladang",
-      "issues": ["restricted-area"]
+      "issues": [
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 14,
       "name": "Kuil Arulmigu Maha Mariamman",
       "address": "Bedong, Kuala Muda",
       "district": "Kuala Muda",
-      "lat": 5.7270,
-      "lng": 100.5050,
+      "lat": 5.727,
+      "lng": 100.505,
       "status": "illegal",
       "category": "industrial",
       "notes": "Kawasan perindustrian",
-      "issues": ["other"]
+      "issues": [
+        "other"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 15,
       "name": "Tokong Tua Pek Kong",
       "address": "Yan, Yan",
       "district": "Yan",
-      "lat": 5.7920,
-      "lng": 100.3730,
+      "lat": 5.792,
+      "lng": 100.373,
       "status": "legal",
       "category": "general",
       "notes": "Kelulusan PBT",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 16,
       "name": "Kuil Sri Pathrakali",
       "address": "Ladang Sungai Daun, Yan",
       "district": "Yan",
-      "lat": 5.8010,
-      "lng": 100.3560,
+      "lat": 5.801,
+      "lng": 100.356,
       "status": "illegal",
       "category": "estate",
       "notes": "-",
-      "issues": ["no-lot"]
+      "issues": [
+        "no-lot"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 17,
       "name": "Kuil Nagamman",
       "address": "Gurun, Yan",
       "district": "Yan",
-      "lat": 5.8120,
-      "lng": 100.4710,
+      "lat": 5.812,
+      "lng": 100.471,
       "status": "possibly-illegal",
       "category": "agricultural",
       "notes": "Zon pertanian",
-      "issues": ["wrong-zoning"]
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 18,
       "name": "Kuil Sri Maha Ganapathi",
       "address": "Jitra, Kubang Pasu",
       "district": "Kubang Pasu",
-      "lat": 6.2640,
-      "lng": 100.4230,
+      "lat": 6.264,
+      "lng": 100.423,
       "status": "illegal",
       "category": "government",
       "notes": "Tanah kerajaan",
-      "issues": ["no-lot", "restricted-area"]
+      "issues": [
+        "no-lot",
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 19,
       "name": "Tokong Hock San",
       "address": "Changlun, Kubang Pasu",
       "district": "Kubang Pasu",
-      "lat": 6.4390,
-      "lng": 100.4280,
+      "lat": 6.439,
+      "lng": 100.428,
       "status": "legal",
       "category": "general",
       "notes": "Kelulusan lengkap",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 20,
       "name": "Kuil Sri Draupathi Amman",
       "address": "Kodiang, Kubang Pasu",
       "district": "Kubang Pasu",
-      "lat": 6.3650,
-      "lng": 100.3080,
+      "lat": 6.365,
+      "lng": 100.308,
       "status": "possibly-illegal",
       "category": "general",
       "notes": "Tiada dokumen lengkap",
-      "issues": ["other"]
+      "issues": [
+        "other"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 21,
       "name": "Kuil Arulmigu Karumariamman",
       "address": "Alor Setar, Kota Setar",
       "district": "Kota Setar",
-      "lat": 6.1210,
-      "lng": 100.3670,
+      "lat": 6.121,
+      "lng": 100.367,
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["wrong-zoning"]
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 22,
       "name": "Tokong Kwan Tee",
       "address": "Alor Setar, Kota Setar",
       "district": "Kota Setar",
-      "lat": 6.1190,
-      "lng": 100.3710,
+      "lat": 6.119,
+      "lng": 100.371,
       "status": "legal",
       "category": "general",
       "notes": "Ada kelulusan penuh",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 23,
       "name": "Kuil Sri Ambal Muneeswarar",
       "address": "Ladang Bukit Pinang, Kota Setar",
       "district": "Kota Setar",
-      "lat": 6.0870,
-      "lng": 100.3940,
+      "lat": 6.087,
+      "lng": 100.394,
       "status": "illegal",
       "category": "estate",
       "notes": "-",
-      "issues": ["no-lot", "restricted-area"]
+      "issues": [
+        "no-lot",
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 24,
       "name": "Kuil Sri Raja Mariamman",
       "address": "Langkawi, Langkawi",
       "district": "Langkawi",
-      "lat": 6.3260,
-      "lng": 99.8440,
+      "lat": 6.326,
+      "lng": 99.844,
       "status": "possibly-illegal",
       "category": "commercial",
       "notes": "Kawasan pelancongan",
-      "issues": ["wrong-zoning"]
+      "issues": [
+        "wrong-zoning"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 25,
       "name": "Tokong Sam San Keong",
       "address": "Kuah, Langkawi",
       "district": "Langkawi",
-      "lat": 6.3230,
-      "lng": 99.8490,
+      "lat": 6.323,
+      "lng": 99.849,
       "status": "legal",
       "category": "general",
       "notes": "Kelulusan LADA",
-      "issues": []
+      "issues": [],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 26,
       "name": "Kuil Sri Vinayagar",
       "address": "Padang Serai, Kulim",
       "district": "Kulim",
-      "lat": 5.4120,
-      "lng": 100.6230,
+      "lat": 5.412,
+      "lng": 100.623,
       "status": "illegal",
       "category": "general",
       "notes": "-",
-      "issues": ["no-lot", "other"]
+      "issues": [
+        "no-lot",
+        "other"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     },
     {
       "id": 27,
       "name": "Kuil Sri Sakthi Muneeswaran",
       "address": "Ladang Bukit Jenun, Yan",
       "district": "Yan",
-      "lat": 5.8340,
-      "lng": 100.3910,
+      "lat": 5.834,
+      "lng": 100.391,
       "status": "illegal",
       "category": "estate",
       "notes": "-",
-      "issues": ["no-lot", "restricted-area"]
+      "issues": [
+        "no-lot",
+        "restricted-area"
+      ],
+      "links": [
+        {
+          "url": "https://www.facebook.com/share/p/1CZEroqgpk/",
+          "label": "Sumber"
+        }
+      ]
     }
   ]
 }
