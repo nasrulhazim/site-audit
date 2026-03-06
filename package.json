@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "validate": "node scripts/validate-data.cjs"
   },
   "dependencies": {
     "astro": "^5.5.4",
