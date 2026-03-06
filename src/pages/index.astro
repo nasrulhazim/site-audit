@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/Header.astro'
+import ViewSearch from '../components/ViewSearch.astro'
+import ViewMap from '../components/ViewMap.astro'
+import ViewStats from '../components/ViewStats.astro'
+
+// Glob-import all state JSON files at build time
+const stateFiles = import.meta.glob('../../public/data/states/*.json', { eager: true })
+const states = Object.values(stateFiles).map((mod) => mod.default || mod)
+---
+
+<BaseLayout>
+  <div x-data>
+    <Header />
+    <main>
+      <ViewSearch />
+      <ViewMap />
+      <ViewStats />
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 text-center text-xs border-t" style="color: var(--subtle); border-color: var(--border);">
+      Planning Compliance Status Check &mdash;
+      <span x-text="$store.audit.activeState"></span> &mdash;
+      <span x-text="$store.audit.locations.length + ' sites'"></span>
+    </footer>
+  </div>
+
+  <script define:vars={{ states }}>
+    document.addEventListener('alpine:init', () => {
+      // All Malaysian states
+      const allStates = [
+        'Johor', 'Kedah', 'Kelantan', 'Melaka', 'Negeri Sembilan',
+        'Pahang', 'Perak', 'Perlis', 'Pulau Pinang', 'Sabah',
+        'Sarawak', 'Selangor', 'Terengganu',
+        'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya'
+      ]
+
+      // Build lookup from available data files
+      const stateMap = {}
+      states.forEach(s => {
+        stateMap[s.meta.state] = s
+      })
+
+      // Default to first state that has data
+      const statesWithData = allStates.filter(s => stateMap[s])
+      const defaultState = statesWithData[0] || allStates[0]
+
+      Alpine.store('audit', {
+        _stateMap: stateMap,
+        allStates: allStates,
+        stateNames: allStates,
+        activeState: defaultState,
+        activeView: 'search',
+        dark: document.documentElement.dataset.dark === 'true',
+        search: '',
+        filterDistrict: 'all',
+        filterStatus: 'all',
+        filterCategory: 'all',
+
+        get hasData() {
+          return !!this._stateMap[this.activeState]
+        },
+
+        get currentData() {
+          return this._stateMap[this.activeState] || null
+        },
+
+        get locations() {
+          return this.currentData ? this.currentData.locations : []
+        },
+
+        get meta() {
+          if (this.currentData) return this.currentData.meta
+          const centers = {
+            'Johor':              { lat: 1.85, lng: 103.75, zoom: 9 },
+            'Kedah':              { lat: 5.8,  lng: 100.5,  zoom: 9 },
+            'Kelantan':           { lat: 5.3,  lng: 102.15, zoom: 9 },
+            'Melaka':             { lat: 2.2,  lng: 102.25, zoom: 11 },
+            'Negeri Sembilan':    { lat: 2.75, lng: 102.25, zoom: 10 },
+            'Pahang':             { lat: 3.8,  lng: 102.5,  zoom: 8 },
+            'Perak':              { lat: 4.6,  lng: 101.1,  zoom: 9 },
+            'Perlis':             { lat: 6.45, lng: 100.2,  zoom: 11 },
+            'Pulau Pinang':       { lat: 5.35, lng: 100.3,  zoom: 11 },
+            'Sabah':              { lat: 5.3,  lng: 117.0,  zoom: 8 },
+            'Sarawak':            { lat: 2.5,  lng: 111.5,  zoom: 7 },
+            'Selangor':           { lat: 3.2,  lng: 101.5,  zoom: 10 },
+            'Terengganu':         { lat: 4.75, lng: 103.1,  zoom: 9 },
+            'W.P. Kuala Lumpur':  { lat: 3.14, lng: 101.69, zoom: 12 },
+            'W.P. Labuan':        { lat: 5.28, lng: 115.24, zoom: 12 },
+            'W.P. Putrajaya':     { lat: 2.93, lng: 101.69, zoom: 13 }
+          }
+          return { state: this.activeState, generated: '-', center: centers[this.activeState] || { lat: 4.2, lng: 108.0, zoom: 6 } }
+        },
+
+        get filtered() {
+          return this.locations.filter(l => {
+            const q = this.search.toLowerCase()
+            const matchQ = !q || l.name.toLowerCase().includes(q) || l.address.toLowerCase().includes(q)
+            const matchD = this.filterDistrict === 'all' || l.district === this.filterDistrict
+            const matchS = this.filterStatus === 'all' || l.status === this.filterStatus
+            const matchC = this.filterCategory === 'all' || l.category === this.filterCategory
+            return matchQ && matchD && matchS && matchC
+          })
+        },
+
+        get districts() {
+          return [...new Set(this.locations.map(l => l.district))].sort()
+        },
+
+        get categories() {
+          return [...new Set(this.locations.map(l => l.category))].sort()
+        },
+
+        get stats() {
+          const total = this.locations.length
+          const byStatus = this.locations.reduce((a, l) => {
+            a[l.status] = (a[l.status] || 0) + 1; return a
+          }, {})
+          const byDistrict = this.locations.reduce((a, l) => {
+            a[l.district] = (a[l.district] || 0) + 1; return a
+          }, {})
+          const byCategory = this.locations.reduce((a, l) => {
+            a[l.category] = (a[l.category] || 0) + 1; return a
+          }, {})
+          return { total, byStatus, byDistrict, byCategory }
+        },
+
+        switchState(state) {
+          this.activeState = state
+          this.search = ''
+          this.filterDistrict = 'all'
+          this.filterStatus = 'all'
+          this.filterCategory = 'all'
+        },
+
+        toggleDark() {
+          this.dark = !this.dark
+          document.documentElement.dataset.dark = this.dark
+          localStorage.setItem('site-audit-dark', this.dark)
+        }
+      })
+    })
+  </script>
+</BaseLayout>

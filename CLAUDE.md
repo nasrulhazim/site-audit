@@ -7,7 +7,7 @@
 ## Project Overview
 
 **SiteAudit** is a static website for checking planning compliance status of buildings and sites.
-Deployed on Netlify. Data is loaded from a static JSON file. No backend, no database.
+Deployed on Netlify. Data is loaded from static JSON files (one per state). No backend, no database.
 
 ---
 
@@ -20,7 +20,7 @@ Deployed on Netlify. Data is loaded from a static JSON file. No backend, no data
 | Interactivity | Alpine.js                     | v3.x (CDN)  |
 | Map           | Leaflet.js                    | v1.9 (CDN)  |
 | Charts        | Chart.js                      | v4.x (CDN)  |
-| Data          | JSON (static file)            | —           |
+| Data          | JSON (per-state static files) | —           |
 | Deploy        | Netlify                       | —           |
 | Fonts         | Google Fonts (Syne + DM Mono) | —           |
 
@@ -32,16 +32,18 @@ Deployed on Netlify. Data is loaded from a static JSON file. No backend, no data
 site-audit/
 ├── public/
 │   └── data/
-│       └── locations.json        ← all location data
+│       └── states/
+│           ├── kedah.json        ← one file per state
+│           └── ...               ← add more states here
 ├── src/
 │   ├── styles/
 │   │   └── global.css            ← CSS custom properties, scrollbar, base styles
 │   ├── layouts/
 │   │   └── BaseLayout.astro      ← html shell, meta tags, dark mode root
 │   ├── pages/
-│   │   └── index.astro           ← single page, injects JSON into Alpine store
+│   │   └── index.astro           ← single page, glob-imports all state JSONs
 │   └── components/
-│       ├── Header.astro          ← logo, view tabs, dark mode toggle
+│       ├── Header.astro          ← logo, state selector, view tabs, dark mode toggle
 │       ├── ViewSearch.astro      ← view: search bar + data table
 │       ├── ViewMap.astro         ← view: Leaflet map with markers
 │       └── ViewStats.astro       ← view: Chart.js statistics dashboard
@@ -55,15 +57,16 @@ site-audit/
 
 ## Data Schema
 
-File: `public/data/locations.json`
+Each state has its own file: `public/data/states/{state-name}.json`
+
+All state files are **glob-imported at build time** in `index.astro` via `import.meta.glob`. Total count is auto-computed from `locations.length` — never stored in meta.
 
 ```json
 {
   "meta": {
-    "title": "Planning Compliance Status Check",
-    "region": "Kedah",
-    "total": 27,
-    "generated": "2025-01-01"
+    "state": "Kedah",
+    "generated": "2025-01-01",
+    "center": { "lat": 5.8, "lng": 100.5, "zoom": 9 }
   },
   "locations": [
     {
@@ -82,72 +85,34 @@ File: `public/data/locations.json`
 }
 ```
 
+**Meta fields:**
+- `state` — state name, used as key for state selector
+- `generated` — date the data was generated
+- `center` — map center coordinates and zoom level for this state
+
 **Status values:** `illegal` | `possibly-illegal` | `legal`
-**Category values:** `general` | `estate`
+**Category values:** `general` | `estate` | `residential` | `commercial` | `industrial` | `agricultural` | `government` | `reserve`
 **Issues values (array, multiple allowed):** `no-lot` | `wrong-zoning` | `restricted-area` | `other`
+
+### Adding a New State
+
+1. Create `public/data/states/{state-name}.json` following the schema above
+2. Set `meta.center` to the geographic center of the state with appropriate zoom
+3. Build — the state automatically appears in the dropdown (no code changes needed)
 
 ---
 
 ## Alpine.js Store
 
-Inject JSON into the Alpine store in `index.astro`. All views share the same store.
+Glob-import all state JSON files and inject into the Alpine store in `index.astro`. All views share the same store. Switching `activeState` updates `locations`, `meta`, filters, and map center.
 
-```js
-// Pattern in index.astro
----
-import data from '../public/data/locations.json'
----
-
-<script define:vars={{ data }}>
-  document.addEventListener('alpine:init', () => {
-    Alpine.store('audit', {
-      locations: data.locations,
-      meta: data.meta,
-      activeView: 'search',   // 'search' | 'map' | 'stats'
-      dark: true,
-      search: '',
-      filterDistrict: 'all',
-      filterStatus: 'all',
-      filterCategory: 'all',
-
-      get filtered() {
-        return this.locations.filter(l => {
-          const q = this.search.toLowerCase()
-          const matchQ = !q || l.name.toLowerCase().includes(q) || l.address.toLowerCase().includes(q)
-          const matchD = this.filterDistrict === 'all' || l.district === this.filterDistrict
-          const matchS = this.filterStatus === 'all' || l.status === this.filterStatus
-          const matchC = this.filterCategory === 'all' || l.category === this.filterCategory
-          return matchQ && matchD && matchS && matchC
-        })
-      },
-
-      get districts() {
-        return [...new Set(this.locations.map(l => l.district))].sort()
-      },
-
-      get stats() {
-        const total = this.locations.length
-        const byStatus = this.locations.reduce((a, l) => {
-          a[l.status] = (a[l.status] || 0) + 1; return a
-        }, {})
-        const byDistrict = this.locations.reduce((a, l) => {
-          a[l.district] = (a[l.district] || 0) + 1; return a
-        }, {})
-        const byCategory = this.locations.reduce((a, l) => {
-          a[l.category] = (a[l.category] || 0) + 1; return a
-        }, {})
-        return { total, byStatus, byDistrict, byCategory }
-      },
-
-      toggleDark() {
-        this.dark = !this.dark
-        document.documentElement.dataset.dark = this.dark
-        localStorage.setItem('site-audit-dark', this.dark)
-      }
-    })
-  })
-</script>
-```
+Key store properties:
+- `_stateMap` — lookup object `{ "Kedah": { meta, locations }, ... }`
+- `stateNames` — sorted array of available state names
+- `activeState` — currently selected state
+- `switchState(state)` — changes state + resets all filters
+- `locations` / `meta` — computed getters from `activeState`
+- `stats.total` — auto-computed from `locations.length`
 
 ---
 
@@ -172,6 +137,7 @@ import data from '../public/data/locations.json'
 - Marker clustering for dense areas (Leaflet.markercluster via CDN)
 - Mini filter bar above map (filter by status)
 - Map must reinitialise when view becomes active — use Alpine `$watch('$store.audit.activeView', ...)`
+- Map re-centers when `activeState` changes — reads `meta.center` for lat/lng/zoom
 
 ```js
 // Safe map init pattern — ensure div has height before init
@@ -191,7 +157,7 @@ x-init="
 - Doughnut chart — status breakdown
 - Bar chart — count by district
 - Issue breakdown cards — Estate, Wrong Zoning, No Lot, Others
-- All charts must be destroyed and rebuilt when dark mode is toggled or view is switched
+- All charts must be destroyed and rebuilt when dark mode is toggled, view is switched, or state changes
 
 ---
 
@@ -347,7 +313,7 @@ export default defineConfig({
 
 ## Ground Rules
 
-1. **Never hardcode data inside components** — all data comes from `locations.json` via Alpine store
+1. **Never hardcode data inside components** — all data comes from per-state JSON files via Alpine store
 2. **Static output only** — `output: 'static'` in Astro config, no SSR
 3. **Alpine.js via CDN** — load in `BaseLayout.astro` `<head>`, do not npm install
 4. **Leaflet via CDN** — initialise map inside `x-init`, always ensure div has explicit height
@@ -367,4 +333,4 @@ npx astro add tailwind
 npm install
 ```
 
-Then scaffold the folder structure above, copy `locations.json` into `public/data/`, and build components one at a time.
+Then scaffold the folder structure above, add state JSON files into `public/data/states/`, and build components one at a time.
